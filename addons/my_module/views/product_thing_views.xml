@@ -1,0 +1,43 @@
+<odoo>
+  <record id="view_product_thing_tree" model="ir.ui.view">
+    <field name="name">my.product.thing.tree</field>
+    <field name="model">my.product.thing</field>
+    <field name="arch" type="xml">
+      <tree editable="bottom">
+        <field name="name"/>
+        <field name="production_date"/>
+        <field name="color" widget="color_badge"/>
+        <field name="weight"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_product_thing_form" model="ir.ui.view">
+    <field name="name">my.product.thing.form</field>
+    <field name="model">my.product.thing</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="production_date"/>
+            <field name="color"/>
+            <field name="weight"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_product_thing" model="ir.actions.act_window">
+    <field name="name">Product Things</field>
+    <field name="res_model">my.product.thing</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_product_thing_root" name="Product Things"/>
+  <menuitem id="menu_product_thing"
+            name="Product Things"
+            parent="menu_product_thing_root"
+            action="action_product_thing"/>
+</odoo>

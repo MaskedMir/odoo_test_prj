@@ -1,0 +1,23 @@
+<odoo>
+  <record id="group_user" model="res.groups">
+    <field name="name">User - Owner Edit</field>
+    <field name="category_id" ref="base.module_category_hidden"/>
+  </record>
+
+  <record id="group_limited" model="res.groups">
+    <field name="name">User - View/Edit Own</field>
+    <field name="category_id" ref="base.module_category_hidden"/>
+  </record>
+
+  <record id="group_admin" model="res.groups">
+    <field name="name">Admin - Full Access</field>
+    <field name="category_id" ref="base.module_category_hidden"/>
+  </record>
+
+  <!-- ВАЖНО: регистрация модели для ir.model.access.csv -->
+  <record id="model_my_product_thing" model="ir.model">
+    <field name="name">my.product.thing</field>
+    <field name="model">my.product.thing</field>
+    <field name="state">base</field>
+  </record>
+</odoo>

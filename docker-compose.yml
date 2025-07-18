@@ -1,0 +1,39 @@
+version: "3.1"
+
+services:
+  db:
+    image: postgres:17
+    container_name: odoo_pg
+    environment:
+      POSTGRES_DB: odoo
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    volumes:
+      - odoo_pg_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  odoo:
+    image: odoo:17
+    container_name: odoo17
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+    volumes:
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    command: >
+      odoo -c /etc/odoo/odoo.conf
+      -d odoo
+      -i base
+      --without-demo=all
+      --log-level=info
+      --db-filter=.*
+    restart: unless-stopped
+
+volumes:
+  odoo_pg_data:

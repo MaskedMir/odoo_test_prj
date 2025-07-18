@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_thing_user,my.product.thing.user,my_module.model_my_product_thing,my_module.group_user,1,1,1,0
+access_product_thing_limited,my.product.thing.limited,my_module.model_my_product_thing,my_module.group_limited,1,0,0,0
+access_product_thing_admin,my.product.thing.admin,my_module.model_my_product_thing,my_module.group_admin,1,1,1,1
